@@ -1,0 +1,17 @@
+<div class="productContainer">
+    <div *ngFor="let produto of produtos" class="card" [title]="produto.nome">
+        <img src="https://picsum.photos/1000?random=1{{produto.id}}" [routerLink]="['/produtos', produto.id]">
+        <div>
+            {{produto.nome |uppercase}}
+        </div>
+        <div *ngIf="produto.descricao">
+            {{produto.descricao}}
+        </div>
+        <div>
+            {{produto.preco | currency:'BRL'}}
+        </div>
+        <app-alertas-produto [produto]="produto" (notify)="onNotify(produto)"></app-alertas-produto>
+        <button (click)="compartilhar()">Compartilhar</button>
+    </div>
+
+</div>

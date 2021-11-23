@@ -1,0 +1,35 @@
+
+.tabs{
+    display: flex;
+    justify-content:center;
+    border-bottom: solid #9C27B0;
+    
+}
+
+.tabs div{
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    padding: 10px 30px 10px 30px;
+    margin-left: 10px;
+}
+
+.tabs .selected{
+    background-color: #9C27B0;
+    color: white;
+}
+
+.tabs div:hover{
+    background-color: #9C27B0;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+mat-button-toggle-group{
+    float:right;
+    margin-right: 10px;
+}

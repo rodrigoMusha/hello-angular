@@ -1,0 +1,25 @@
+<h2>Detalhes do produto</h2>
+
+<div *ngIf="produto; else naoencontrei">
+    <img src="https://picsum.photos/200?random=1{{produto.id}}">
+    <div class="detalhes">
+        <div>
+            <b>{{produto.nome |uppercase}}</b>
+        </div>
+        <div *ngIf="produto.descricao">
+            {{produto.descricao}}
+        </div>
+        <br>
+        <div>
+            {{produto.preco | currency:'BRL'}}
+        </div>
+        <br>
+        <div>
+            Em estoque: {{produto.estoque}}
+        </div>
+        <button [routerLink]="['/']">Voltar</button>
+    </div>
+</div>
+<ng-template #naoencontrei>
+    Esse produto n&atilde;o existe!
+</ng-template>
