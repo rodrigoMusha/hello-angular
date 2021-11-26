@@ -1,0 +1,14 @@
+[
+    {
+    "tipo":"Amanha",
+    "preco": 25.99
+    },
+    {
+    "tipo":"2 dias",
+    "preco": 9.99
+    },
+    {
+    "tipo":"Correios",
+    "preco": 2.99
+    }
+]

@@ -17,6 +17,8 @@
         <div>
             Em estoque: {{produto.estoque}}
         </div>
+        <button (click)="inserirNoCarrinho(produto)">Comprar</button>
+
         <button [routerLink]="['/']">Voltar</button>
     </div>
 </div>

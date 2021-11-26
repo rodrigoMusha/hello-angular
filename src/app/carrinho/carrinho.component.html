@@ -1,0 +1,25 @@
+<h3>Carrinho de Compras</h3>
+<div *ngFor="let item of items">
+    <span>{{item.nome}}</span>
+    <span>{{item.preco | currency:'BRL' }}</span>
+</div>
+<div *ngIf="items.length==0">
+    Carrinho Vazio
+</div>
+<a routerLink="/envio">
+    Custos de Envio
+    <mat-icon>local_shipping
+    </mat-icon>
+</a>
+
+<form [formGroup]="formEnvio" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome">
+    </div>
+    <div>
+        <label for="endereco">Endere&ccedil;o</label>
+        <input id="endereco" type="text" formControlName="endereco">
+    </div>
+    <button type="submit">Confirmar</button>
+</form>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Produto, produtos } from '../produtos';
+import { CarrinhoService } from '../carrinho.service';
 
 @Component({
   selector: 'app-detalhes-produto',
@@ -10,7 +11,7 @@ import { Produto, produtos } from '../produtos';
 export class DetalhesProdutoComponent implements OnInit {
 
   produto: Produto | undefined;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private carrinhoService :CarrinhoService) { }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
@@ -18,6 +19,11 @@ export class DetalhesProdutoComponent implements OnInit {
 
     // Encontra os produtos a partir do ID
     this.produto = produtos.find(product => product.id === idProdutoFromRoute);
+  }
+
+  inserirNoCarrinho(produto: Produto){
+    this.carrinhoService.inserirNoCarrinho(produto);
+    window.alert ('Produto inserido com sucesso!');
   }
 
 

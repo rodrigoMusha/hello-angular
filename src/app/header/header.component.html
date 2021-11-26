@@ -1,3 +1,13 @@
+<div class="carrinho">
+    <a routerLink="/envio">
+        <mat-icon>local_shipping
+        </mat-icon>
+    </a>
+    <a routerLink="/carrinho" matBadge="{{items.length}}" [matBadgeHidden]="items.length==0">
+        <mat-icon>shopping_cart</mat-icon>
+    </a>
+
+</div>
 <div class="tabs">
     <div matBadge="{{categoria.count}}" *ngFor="let categoria of categorias" [matBadgeHidden]="cat!=categoria.id"
         [class.selected]="cat==categoria.id" (click)="selectCat(categoria.id)">

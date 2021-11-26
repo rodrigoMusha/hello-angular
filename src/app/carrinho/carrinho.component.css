@@ -1,0 +1,12 @@
+span{
+    margin: 5px;
+}
+
+form div{
+    padding: 5px;
+    display: flex;
+    width: 20%;
+}
+form input{
+    margin-left: 5px;
+}

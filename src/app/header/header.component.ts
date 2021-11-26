@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { categorias, produtos } from '../produtos';
 import {Location} from '@angular/common';
+import { CarrinhoService } from '../carrinho.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,12 @@ export class HeaderComponent implements OnInit {
   cat:number|undefined;
   vitrine!:string;
   produtos=produtos;
+  items = this.carrinhoService.retornarCarrinho();
 
-  constructor(private router: Router, private location: Location) {
+  constructor(private router: Router, private location: Location, private carrinhoService : CarrinhoService) {
   router.events.subscribe(event=>{
     if(event instanceof NavigationEnd){
+      this.items = this.carrinhoService.retornarCarrinho();
       let url =event.url.split("/");
       this.cat=Number(url[url.length-1]);
       if(!this.cat){
@@ -32,7 +35,7 @@ export class HeaderComponent implements OnInit {
   }
   selectCat(id:number){
     if(this.vitrine=="card"){
-      this.router.navigate(["./",id]);
+      this.router.navigate(["./grid",id]);
     } else{
       this.router.navigate(["./list",id]);
     }
@@ -45,7 +48,7 @@ export class HeaderComponent implements OnInit {
   onValChange(val: string) {
     this.vitrine = val;
     if(this.vitrine=="card"){
-      this.router.navigate(["./",this.cat]);
+      this.router.navigate(["./grid",this.cat]);
     } else{
       this.router.navigate(["./list",this.cat]);
     }

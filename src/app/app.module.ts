@@ -14,8 +14,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component'
 import {MatTableModule} from '@angular/material/table';
 import {MatBadgeModule} from '@angular/material/badge';
-
-
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EnvioComponent } from './envio/envio.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     FooterComponent,
     AlertasProdutoComponent,
     DetalhesProdutoComponent,
-    ListaProdutosComponent
+    ListaProdutosComponent,
+    CarrinhoComponent,
+    EnvioComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatButtonToggleModule,
     MatIconModule,
     MatTableModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,6 @@
+<h3>Pre&ccedil;o de Envio</h3>
+<div *ngFor="let envio of custosEntrega | async">
+    <input type="radio" [value]="envio.tipo" name="shipping">
+    <span>{{envio.tipo}}</span>
+    <span>{{envio.preco | currency:'BRL'}}</span>
+</div>
