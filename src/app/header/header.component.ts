@@ -21,14 +21,18 @@ export class HeaderComponent implements OnInit {
     if(event instanceof NavigationEnd){
       this.items = this.carrinhoService.retornarCarrinho();
       let url =event.url.split("/");
-      this.cat=Number(url[url.length-1]);
+      
       if(!this.cat){
         this.cat =0;
       }
       if(url.includes("list")){
-        this.vitrine="list"
-      } else {
+        this.vitrine="list";
+        this.cat=Number(url[url.length-1]);
+      } else if(url.includes("grid")){
         this.vitrine="card"
+        this.cat=Number(url[url.length-1]);
+      } else {
+        this.cat =0;
       }
       }
     })
